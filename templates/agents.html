@@ -31,9 +31,10 @@ Agents
                 <td>{{ agent.paw }}</td>
                 <td>
                     <select name={{ agent.paw }}>
+                        <option value="none" {% if agent.role=='none' or agent.role == '' %} selected {% endif %}>none</option>
                         <option value="simu" {% if agent.role=='simu' %} selected {% endif %}>Simulateur</option>
                         <option value="ecdis" {% if agent.role=='ecdis' %} selected {% endif %}>ECDIS</option>
-                        <option value="none" {% if agent.role=='none' or agent.role == '' %} selected {% endif %}>none</option>
+                        
                     </select>
                 </td>
             </tr>
@@ -41,7 +42,10 @@ Agents
 
         </tbody>
     </table>
-    <button type="submit">Sauvegarder</button>
+    <button type="submit" class="btn btn-dark">
+        <i class="bi bi-save"></i>
+        Sauvegarder
+    </button>
 </form>
 </p>
 {% endblock %}

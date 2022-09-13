@@ -6,8 +6,80 @@ Simulation
 {% endblock %}
 
 {% block body %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger" role="alert">
+        <h4>Les erreurs suivantes sont survenues:</h4>
+    <ul>
+        {% for m in messages %}
+            <li>{{m}}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endif %}
+{% endwith %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1>Lancer une simulation</h1>
 </div>
-<p>À venir</p>
+<form action="#" method="POST">
+    <div class="row g-5">
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Contexte</h4>
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label class="form-label" for="long">Longitude</label>
+                    <input name="long" id="long" value="" class="form-control" type="text" required>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label" for="lat">Latitude</label>
+                    <input name="lat" id="lat" value="" class="form-control" type="text" required>
+                </div>
+                <div class="col-12">
+                    <label class="control-label col-sm-6">Manoevrabilité du navire</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="poidsNavire" id="poids1" value="poids1" checked>
+                        <label class="form-check-label" for="poids1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="poidsNavire" id="poids2" value="poids2">
+                        <label class="form-check-label" for="poids2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="poidsNavire" id="poids3" value="poids3">
+                        <label class="form-check-label" for="poids3">3</label>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <h4 class="mb-3">Attaque</h4>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="control-label col-sm-6">Choix de l'attaque</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="attaque" id="attack1" value="none" checked>
+                        <label class="form-check-label" for="attack1">Aucune</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="attaque" id="attack2" value="dos">
+                        <label class="form-check-label" for="attack2">Déni de service</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="attaque" id="attack3" value="deviation">
+                        <label class="form-check-label" for="attack3">Déviation de la trajectoire</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label" for="delai">Délai d'exécution</label>
+                    <input name="delai" id="delai" value="0" class="form-control" type="number" required>
+                </div>
+            </div>
+            <hr class="my-4">
+            <button class="btn btn-primary btn-lg" type="submit">
+                <i class="bi bi-play-fill"></i>
+                Lancer la simulation
+            </button>
+        </div>
+    </div>
+    
+</form>
 {% endblock %}
