@@ -28,11 +28,30 @@ Simulation
             <div class="row g-3">
                 <div class="col-sm-6">
                     <label class="form-label" for="long">Longitude</label>
-                    <input name="long" id="long" value="" class="form-control" type="text" required>
+                    <input name="long" id="long" value="-73.506" class="form-control" type="text" required>
                 </div>
                 <div class="col-sm-6">
                     <label class="form-label" for="lat">Latitude</label>
-                    <input name="lat" id="lat" value="" class="form-control" type="text" required>
+                    <input name="lat" id="lat" value="45.585" class="form-control" type="text" required>
+                </div>
+                <div class="col-12">
+                    <label class="control-label col-sm-6">Conditions météorologiques (visibilité)</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="meteo" id="meteo1" value="meteo1" checked>
+                        <label class="form-check-label" for="meteo1">Bonnes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="meteo" id="meteo2" value="meteo2">
+                        <label class="form-check-label" for="meteo2">Moyennes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="meteo" id="meteo3" value="meteo3">
+                        <label class="form-check-label" for="meteo3">Mauvaises</label>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <label for="customRange1" class="form-label">Fréquentation: 2/10</label>
+                    <input type="range" class="form-range" id="customRange1" min="0" max="10" value="2" oninput="this.labels[0].textContent = 'Fréquentation: '+this.value+'/10'">
                 </div>
                 <div class="col-12">
                     <label class="control-label col-sm-6">Manoevrabilité du navire</label>
@@ -69,7 +88,7 @@ Simulation
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <label class="form-label" for="delai">Délai d'exécution</label>
+                    <label class="form-label" for="delai">Délai d'exécution (s)</label>
                     <input name="delai" id="delai" value="0" class="form-control" type="number" required>
                 </div>
             </div>

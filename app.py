@@ -47,20 +47,22 @@ def simu():
                     return redirect(url_for("simu"))
 
         
-        # Create simu command
-        simu_command = testbed.run_simu(poids, longi, lat)
+            # Create simu command
+            simu_command = testbed.run_simu(poids, longi, lat)
 
-        # Create attack command
-        attack_command = ""
-        if attack != 'none':
-            attack_command = testbed.run_attack(attack, "")
-        
-        # Run everything
-        op_id = caldera.create_op("attack", cookie)
-        caldera.run_command(simu_command, cookie, op_id, simu_agent.platform, simu_agent.paw)
-        time.sleep(delai)
-        if attack_command:
-            caldera.run_command(attack_command, cookie, op_id, ecdis_agent.platform, ecdis_agent.paw)
+            # Create attack command
+            attack_command = ""
+            if attack != 'none':
+                attack_command = testbed.run_attack(attack, "")
+            
+            # Run everything
+            op_id = caldera.create_op("attack", cookie)
+            caldera.run_command(simu_command, cookie, op_id, simu_agent.platform, simu_agent.paw)
+            time.sleep(delai)
+            if attack_command:
+                caldera.run_command(attack_command, cookie, op_id, ecdis_agent.platform, ecdis_agent.paw)
+        else:
+            flash("Aucun agent n'a de rôle enregistré")
 
         return redirect(url_for("simu"))
 
