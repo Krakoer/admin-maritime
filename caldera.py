@@ -80,7 +80,7 @@ def run_command(command, auth_cookie, op_id, plateform, paw):
     if plateform == 'linux':
         name = 'sh'
     elif plateform == 'windows':
-        name = 'ps'
+        name = 'psh'
 
     json_data = {
         'paw': f'{paw}',
@@ -91,6 +91,7 @@ def run_command(command, auth_cookie, op_id, plateform, paw):
         },
     }
 
+    print("Sending: "+str(json_data))
     response = requests.post(f'http://127.0.0.1:8888/api/v2/operations/{op_id}/potential-links', cookies=cookies, json=json_data)
     if response.status_code != 200:
         print(f"Fail to add command {command} to op {op_id}")
@@ -138,7 +139,7 @@ def main():
         return
     op_id = create_op("couou", cookie)
     print(op_id)
-    run_command("whoami", cookie, op_id, "linux", "dbzhzq")
+    #run_command("whoami", cookie, op_id, "windows", "svidku")
     
 if __name__ == "__main__":
     main()

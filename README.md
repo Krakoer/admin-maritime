@@ -11,8 +11,10 @@ L'objectif de cette interface est de créer un wrapper autour de caldera pour fa
 ## Run
 
 ```console
+git clone --recursive https://github.com/mitre/caldera.git
+cd caldera && docker build . -t caldera
 sudo docker run -d -p 8888:8888 caldera:latest
-cd admin-maritime
+cd ../admin-maritime
 pip install -r requierments.txt
 python app.py
 ```
@@ -33,8 +35,8 @@ L'onglet "simulation" permet de choisir un contexte et une attaque, et de lancer
 - [ ] Créer une docs dans index.html
 - [ ] Validation des données (js)
 - [ ] Créer une description modulable de l'environnement (description des attaques et des agent). Par exemple, une attaque est constituée d'un script prenant tels arguments, de telle manière, etc. De cette manière, il sera possible de modifier les attaques, le contexte etc. sans changer le code
-- [ ] Création d'attaques complexes (gnagnagna oN DiT pAs coMpLExe Ca vEUt RiEN DirE) avec des blocs et des délais
-- [ ] Attaques compexes: noramlisation de la représentation 
-- [ ] Attaques compexes: sauvegarde 
-- [ ] Attaques compexes: triggers (attendre un événement avant de déclencher une attaque, déclencher une attaque ou une autre selon un événement etc.) 
+- [ ] Création d'attaques complexes avec des blocs et des délais
+- [ ] Attaques complexes: normalisation de la représentation 
+- [ ] Attaques complexes: sauvegarde 
+- [ ] Attaques complexes: triggers (attendre un événement avant de déclencher une attaque, déclencher une attaque ou une autre selon un événement etc.) 
 - [ ] Checker la sécu de l'appli (injections etc.)

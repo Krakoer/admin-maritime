@@ -82,12 +82,34 @@ Simulation
                         <input class="form-check-input" type="radio" name="attaque" id="attack2" value="dos">
                         <label class="form-check-label" for="attack2">Déni de service</label>
                     </div>
-                    <div class="form-check form-check-inline">
+	            <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="attaque" id="attack3" value="deviation">
                         <label class="form-check-label" for="attack3">Déviation de la trajectoire</label>
                     </div>
-                </div>
-                <div class="col-sm-6">
+               </div>
+            </div>
+	    <hr class="my-4">
+            <h4 class="mb-3">Paramètres</h4>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="control-label col-sm-6">Choix du paramètre</label>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="others" id="others0" value="none" checked>
+			<label class="form-check-label" for="others1">Aucun</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="others" id="others1" value="reset_TZ">
+			<label class="form-check-label" for="others1">Remettre à zéro TZ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="others" id="others2" value="start_TZ" >
+			<label class="form-check-label" for="others2">Lancer TimeZero</label>
+                    </div>
+                 </div>
+             </div>
+
+            <div class="row g-4">
+		<div class="col-sm-7">
                     <label class="form-label" for="delai">Délai d'exécution (s)</label>
                     <input name="delai" id="delai" value="0" class="form-control" type="number" required>
                 </div>
